@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
       showPerformanceOverlay: false,
       title: title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(title)),
+        backgroundColor: const Color.fromARGB(255, 41, 167, 98),
+        appBar: AppBar(
+          title: const Text(title),
+          backgroundColor: const Color.fromARGB(255, 182, 77, 91),
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -79,32 +83,51 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     void randomVogal() {
       setState(() {
         letra1 = vogais[0];
+        letra1 = vogais[1];
+        letra1 = vogais[2];
+        letra1 = vogais[3];
+        letra1 = vogais[4];
+        letra1 = vogais[5];
       });
     }
 
     void randomConsoante() {
+      letra1 = consoantes[0];
+
       setState(() {
-        letra1 = consoantes[0];
+        letra2 = consoantes[1];
       });
+    }
+
+    void clearText() {
+      letra1 = "-";
+      letra2 = "-";
+      letra3 = "-";
+      letra4 = "-";
+      letra5 = "-";
+      letra6 = "-";
     }
 
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    var grey = Colors.grey;
+
     return Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
             letra1,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 40,
-              color: grey[700],
+              color: Color.fromARGB(255, 77, 20, 26),
             ),
           ),
           Text(
             letra2,
-            style: Theme.of(context).textTheme.headline4,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color.fromARGB(255, 77, 20, 26),
+            ),
           ),
           Text(
             letra3,
@@ -131,8 +154,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           const SizedBox(height: 20),
           ElevatedButton(
             style: style,
-            onPressed: () => {randomConsoante()},
+            onPressed: () => setState(randomConsoante),
             child: const Text('Consoante'),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: style,
+            onPressed: () => setState(clearText),
+            child: const Text('Limpar'),
           ),
         ],
       ),
