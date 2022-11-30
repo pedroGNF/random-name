@@ -36,7 +36,12 @@ extension Shuffle on String {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  var contador = "nome";
+  var letra1 = "-";
+  var letra2 = "-";
+  var letra3 = "-";
+  var letra4 = "-";
+  var letra5 = "-";
+  var letra6 = "-";
 
   @override
   Widget build(BuildContext context) {
@@ -73,24 +78,48 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
     void randomVogal() {
       setState(() {
-        contador = vogais[0];
+        letra1 = vogais[0];
       });
     }
 
     void randomConsoante() {
       setState(() {
-        contador = consoantes[0];
+        letra1 = consoantes[0];
       });
     }
 
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    var grey = Colors.grey;
     return Center(
-      child: Column(
+      child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            contador,
+            letra1,
+            style: TextStyle(
+              fontSize: 40,
+              color: grey[700],
+            ),
+          ),
+          Text(
+            letra2,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          Text(
+            letra3,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          Text(
+            letra4,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          Text(
+            letra5,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          Text(
+            letra6,
             style: Theme.of(context).textTheme.headline4,
           ),
           const SizedBox(height: 30),
