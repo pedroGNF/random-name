@@ -6,7 +6,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const String _title = 'Gerador de nomes aleatório';
+  static const String _title = 'Name Generator';
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +32,8 @@ extension Shuffle on String {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  var contador = 'banana';
+  var contador = "📛";
 
-  void aleatorio() {
-    setState(() {
-      contador;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +68,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       print(consoantes);
     }
 
+  void randomVogal() {
+    setState(() {
+      contador = vogais as String;
+    });
+  }
+
+    void randomConsoante() {
+    setState(() {
+      contador = consoantes as String;
+    });
+  }
+  
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Center(
@@ -80,18 +87,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            'contador',
+            contador,
             style: Theme.of(context).textTheme.headline4,
-          ),
-          ElevatedButton(
-            style: style,
-            onPressed: () => {vogais[0]},
-            child: const Text('Vogal'),
           ),
           const SizedBox(height: 30),
           ElevatedButton(
             style: style,
-            onPressed: () => {aleatorio()},
+            onPressed: () => {randomVogal()},
+            child: const Text('Vogal'),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: style,
+            onPressed: () => {randomConsoante()},
             child: const Text('Consoante'),
           ),
         ],
