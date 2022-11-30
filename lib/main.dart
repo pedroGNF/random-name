@@ -6,14 +6,18 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const String _title = 'Name Generator';
+  static const String title = 'Name Generator';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      showSemanticsDebugger: false,
+      showPerformanceOverlay: false,
+      title: title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(title: const Text(title)),
         body: const MyStatefulWidget(),
       ),
     );
@@ -32,8 +36,7 @@ extension Shuffle on String {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  var contador = "📛";
-
+  var contador = "nome";
 
   @override
   Widget build(BuildContext context) {
@@ -68,18 +71,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       print(consoantes);
     }
 
-  void randomVogal() {
-    setState(() {
-      contador = vogais as String;
-    });
-  }
+    void randomVogal() {
+      setState(() {
+        contador = vogais[0];
+      });
+    }
 
     void randomConsoante() {
-    setState(() {
-      contador = consoantes as String;
-    });
-  }
-  
+      setState(() {
+        contador = consoantes[0];
+      });
+    }
+
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Center(
