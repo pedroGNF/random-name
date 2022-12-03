@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 41, 167, 98),
         appBar: AppBar(
           title: const Text(title),
-          backgroundColor: const Color.fromARGB(255, 182, 77, 91),
+          backgroundColor: const Color.fromARGB(255, 95, 89, 89),
         ),
         body: const MyStatefulWidget(),
       ),
@@ -83,19 +83,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     void randomVogal() {
       setState(() {
         letra1 = vogais[0];
-        letra1 = vogais[1];
-        letra1 = vogais[2];
-        letra1 = vogais[3];
-        letra1 = vogais[4];
-        letra1 = vogais[5];
+        letra3 = vogais[1];
+        letra5 = vogais[2];
       });
     }
 
     void randomConsoante() {
-      letra1 = consoantes[0];
-
       setState(() {
-        letra2 = consoantes[1];
+        letra2 = consoantes[0];
+        letra4 = consoantes[1];
+        letra6 = consoantes[2];
       });
     }
 
@@ -131,19 +128,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           Text(
             letra3,
-            style: Theme.of(context).textTheme.headline4,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color.fromARGB(255, 77, 20, 26),
+            ),
           ),
           Text(
             letra4,
-            style: Theme.of(context).textTheme.headline4,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color.fromARGB(255, 77, 20, 26),
+            ),
           ),
           Text(
             letra5,
-            style: Theme.of(context).textTheme.headline4,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color.fromARGB(255, 77, 20, 26),
+            ),
           ),
           Text(
             letra6,
-            style: Theme.of(context).textTheme.headline4,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color.fromARGB(255, 77, 20, 26),
+            ),
           ),
           const SizedBox(height: 30),
           ElevatedButton(
@@ -157,7 +166,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             onPressed: () => setState(randomConsoante),
             child: const Text('Consoante'),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 1),
           ElevatedButton(
             style: style,
             onPressed: () => setState(clearText),
